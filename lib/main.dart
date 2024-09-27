@@ -3,7 +3,7 @@ import 'package:account/screens/form_screen.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:account/provider/transaction_provider.dart';
-import 'package:account/models/transactions.dart';
+
 
 void main() {
   runApp(const MyApp());
