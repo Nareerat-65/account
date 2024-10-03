@@ -2,21 +2,33 @@ import 'package:account/database/transaction_db.dart';
 import 'package:flutter/foundation.dart';
 import 'package:account/models/transactions.dart';
 
-class TransactionProvider with ChangeNotifier{
+class TransactionProvider with ChangeNotifier {
   List<Transactions> transactions = [];
-  
-  List<Transactions> getTrasaction(){
+
+  List<Transactions> getTransaction() {
     return transactions;
   }
-  void addTransaction(Transactions transaction) async{
-    var db = await TransactionDB(dbName: 'transaction.db');
-    var keyID = await db.insertDatabase(transaction);
+
+  void initData() async{
+    var db = await TransactionDB(dbName: 'transactions.db');
     this.transactions = await db.loadAllData();
-    notifyListeners();
-  } 
-  void deleteTrasaction(int index){
-    transactions.removeAt(index);
+    print(this.transactions);
     notifyListeners();
   }
-}
 
+  void addTransaction(Transactions transaction) async{
+    var db = await TransactionDB(dbName: 'transactions.db');
+    var keyID = await db.insertDatabase(transaction);
+    this.transactions = await db.loadAllData();
+    print(this.transactions);
+    notifyListeners();
+  }
+
+  void deleteTransaction(int? index) async{
+    print('delete index: $index');
+    var db = await TransactionDB(dbName: 'transactions.db');
+    await db.deleteDatabase(index);
+    this.transactions = await db.loadAllData();
+    notifyListeners(); 
+  }
+}

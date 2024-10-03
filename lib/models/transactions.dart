@@ -1,12 +1,12 @@
 
 class Transactions {
-  // final String id;
+  final int? keyID;
   final String title;
   final double amount;
   final DateTime date;
 
   Transactions({
-    // required this.id,
+    this.keyID,
     required this.title,
     required this.amount,
     required this.date,
