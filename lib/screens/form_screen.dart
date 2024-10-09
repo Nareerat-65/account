@@ -11,13 +11,15 @@ class FormScreen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
   final titleController = TextEditingController();
   final amountController = TextEditingController();
+  final categoryController = TextEditingController();
+  final authorController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
   
     return Scaffold(
         appBar: AppBar(
-          title: const Text('แบบฟอร์มข้อมูล'),
+          title: const Text('เพิ่มหนังสือของคุณ'),
         ),
         body: Form(
             key: formKey,
@@ -27,11 +29,39 @@ class FormScreen extends StatelessWidget {
                 children: [
                   TextFormField(
                     decoration: const InputDecoration(
-                      labelText: 'ชื่อรายการ',
+                      labelText: 'ชื่อหนังสือ',
                       border: OutlineInputBorder(),
                     ),
                     autofocus: false,
                     controller: titleController,
+                    validator: (String? str) {
+                      if (str!.isEmpty) {
+                        return 'กรุณากรอกข้อมูล';
+                      }
+                    },
+                  ),
+                  const SizedBox(height:16.0),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'ประเภท',
+                      border: OutlineInputBorder(),
+                    ),
+                    autofocus: false,
+                    controller: categoryController,
+                    validator: (String? str) {
+                      if (str!.isEmpty) {
+                        return 'กรุณากรอกข้อมูล';
+                      }
+                    },
+                  ),
+                  const SizedBox(height:16.0),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'ผู้แต่ง',
+                      border: OutlineInputBorder(),
+                    ),
+                    autofocus: false,
+                    controller: authorController,
                     validator: (String? str) {
                       if (str!.isEmpty) {
                         return 'กรุณากรอกข้อมูล';
@@ -68,7 +98,8 @@ class FormScreen extends StatelessWidget {
                                     keyID: null,
                                     title: titleController.text,
                                     amount: double.parse(amountController.text),
-                                    date: DateTime.now()
+                                    category: categoryController.text,
+                                    author: authorController.text,
                                     );
                               
                                 // add transaction data object to provider
