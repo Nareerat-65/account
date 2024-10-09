@@ -13,6 +13,7 @@ class FormScreen extends StatelessWidget {
   final amountController = TextEditingController();
   final categoryController = TextEditingController();
   final authorController = TextEditingController();
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +101,7 @@ class FormScreen extends StatelessWidget {
                                     amount: double.parse(amountController.text),
                                     category: categoryController.text,
                                     author: authorController.text,
+                                    
                                     );
                               
                                 // add transaction data object to provider

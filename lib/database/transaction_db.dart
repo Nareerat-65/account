@@ -28,7 +28,7 @@ class TransactionDB{
       "title": statement.title,
       "amount": statement.amount,
       "category": statement.category,
-      "author":statement.author
+      "author":statement.author,
     });
     db.close();
     return keyID;
@@ -45,7 +45,7 @@ class TransactionDB{
         title: record['title'].toString(),
         amount: double.parse(record['amount'].toString()),
         category: record['category'].toString(),
-        author: record['author'].toString()
+        author: record['author'].toString(),
       ));
     }
     db.close();
@@ -65,7 +65,7 @@ class TransactionDB{
       "title": statement.title,
       "amount": statement.amount,
       "category": statement.category,
-      "author":statement.author
+      "author":statement.author,
     });
     db.close();
     return result;

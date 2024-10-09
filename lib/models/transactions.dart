@@ -5,6 +5,7 @@ class Transactions {
   final double amount;
   final String category;
   final String author;
+  
 
   Transactions({
     this.keyID,
@@ -12,5 +13,6 @@ class Transactions {
     required this.amount,
     required this.category,
     required this.author,
+    
   });
 }

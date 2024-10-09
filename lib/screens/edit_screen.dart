@@ -21,12 +21,14 @@ class _EditScreenState extends State<EditScreen> {
   var amountController = TextEditingController();
   var categoryController = TextEditingController();
   var authorController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     titleController.text = widget.statement.title;
     amountController.text = widget.statement.amount.toString();
     categoryController.text = widget.statement.category;
     authorController.text = widget.statement.author;
+    
     return Scaffold(
         appBar: AppBar(
           title: const Text('แก้ไขข้อมูล'),
